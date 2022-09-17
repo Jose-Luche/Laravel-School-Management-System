@@ -13,7 +13,8 @@ use App\Http\Controllers\Backend\Setup\ExamTypeController;
 use App\Http\Controllers\Backend\Setup\FeeAmountController;
 use App\Http\Controllers\Backend\Student\ExamFeeController;
 use App\Http\Controllers\Backend\Reports\MarksheetController;
-use App\Http\Controllers\backend\reports\StudentIDController;
+
+use App\Http\Controllers\Backend\Reports\StudentIDController;
 use App\Http\Controllers\Backend\Setup\DesignationController;
 use App\Http\Controllers\Backend\Setup\FeeCategoryController;
 use App\Http\Controllers\Backend\Setup\StudentYearController;
@@ -26,7 +27,7 @@ use App\Http\Controllers\Backend\Student\MonthlyFeeController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
 use App\Http\Controllers\Backend\Student\StudentRoleController;
 use App\Http\Controllers\Backend\employee\EmployeeRegController;
-use App\Http\Controllers\backend\reports\ResultReportController;
+use App\Http\Controllers\Backend\Reports\ResultReportController;
 use App\Http\Controllers\Backend\Student\RegistrationController;
 use App\Http\Controllers\Backend\Account\AccountSalaryController;
 use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
