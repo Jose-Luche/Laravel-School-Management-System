@@ -130,7 +130,7 @@
                         </tbody>
                         
                       </table> 
-                      @else 
+                      
                         <table id="example1" class="table table-bordered table-striped">
                           <thead>
                               <tr>
@@ -183,7 +183,7 @@
                           </tbody>
                           
                         </table>
-                    @endif
+                    
                     
                   </div>
               </div>
