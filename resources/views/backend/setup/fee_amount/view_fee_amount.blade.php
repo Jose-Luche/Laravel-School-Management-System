@@ -36,7 +36,7 @@
                             <tr>
                                 <td>{{ $key+1 }}</td>
                                 
-                                <td>{{ $amount['fee_category']['name'] }}</td> <!-- Displaying the name from related tables -->
+                                <!--<td>{{ $amount['fee_category']['name'] }}</td>--> <!-- Displaying the name from related tables -->
                                 
                                 <td>
                                     <a href="{{ route('fee.amount.edit', $amount->fee_category_id) }}" class="btn btn-info" >Edit</a>
