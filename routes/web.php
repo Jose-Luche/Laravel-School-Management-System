@@ -5,16 +5,20 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\DefaultController;
 use App\Http\Controllers\Backend\ProfileController;
-use App\Http\Controllers\Backend\Marks\GradeController;
-use App\Http\Controllers\Backend\Marks\MarksController;
+use App\Http\Controllers\Backend\marks\GradeController;
+use App\Http\Controllers\Backend\marks\MarksController;
 use App\Http\Controllers\Backend\Setup\SubjectController;
 use App\Http\Controllers\Backend\Account\LedgerController;
 use App\Http\Controllers\Backend\Reports\ProfitController;
 use App\Http\Controllers\Backend\Setup\ExamTypeController;
 use App\Http\Controllers\Backend\Setup\FeeAmountController;
+<<<<<<< HEAD
 use App\Http\Controllers\Backend\Student\ExamFeeController;
 
 use App\Http\Controllers\Backend\Account\ReceiptsController;
+=======
+use App\Http\Controllers\Backend\student\ExamFeeController;
+>>>>>>> 7940321ccf29d7f7d9479738e2fdbd66c0acba54
 use App\Http\Controllers\Backend\Reports\MarksheetController;
 use App\Http\Controllers\Backend\Reports\StudentIDController;
 use App\Http\Controllers\Backend\Setup\DesignationController;
@@ -25,17 +29,21 @@ use App\Http\Controllers\Backend\Account\StudentFeeController;
 use App\Http\Controllers\Backend\Setup\StudentClassController;
 use App\Http\Controllers\Backend\Setup\StudentGroupController;
 use App\Http\Controllers\Backend\Setup\StudentShiftController;
-use App\Http\Controllers\Backend\Student\MonthlyFeeController;
+use App\Http\Controllers\Backend\student\MonthlyFeeController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
-use App\Http\Controllers\Backend\Student\StudentRoleController;
+use App\Http\Controllers\Backend\student\StudentRoleController;
 use App\Http\Controllers\Backend\employee\EmployeeRegController;
 use App\Http\Controllers\Backend\Reports\ResultReportController;
+<<<<<<< HEAD
 use App\Http\Controllers\Backend\Student\RegistrationController;
+=======
+use App\Http\Controllers\Backend\student\RegistrationController;
+>>>>>>> 7940321ccf29d7f7d9479738e2fdbd66c0acba54
 use App\Http\Controllers\Backend\Account\AccountSalaryController;
 use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
 use App\Http\Controllers\Backend\Employee\MonthlySalaryController;
 use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
-use App\Http\Controllers\Backend\Student\RegistrationFeeController;
+use App\Http\Controllers\Backend\student\RegistrationFeeController;
 use App\Http\Controllers\Backend\Reports\AttendanceReportController;
 use App\Http\Controllers\Backend\Employee\EmployeeAttendanceController;
 

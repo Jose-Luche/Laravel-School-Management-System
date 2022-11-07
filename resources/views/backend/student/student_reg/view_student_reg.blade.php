@@ -77,7 +77,7 @@
               <!-- /.box-header -->
               <div class="box-body">
                   <div class="table-responsive">
-                    @if (!@search)
+                    
                       <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
@@ -130,60 +130,9 @@
                         </tbody>
                         
                       </table> 
-                      @else 
-                        <table id="example1" class="table table-bordered table-striped">
-                          <thead>
-                              <tr>
-                                  <th width="5%">SL</th>
-                                  
-                                  <th>ID No</th>
-                                  <th>Name</th>
-                                  <th>Role</th>
-                                  <th>Year</th>
-                                  <th>Class</th>
-                                  <th>Image</th>
-                                  @if (Auth::user()->role == "Admin")
-                                    <th>Code</th> 
-                                  @endif
-                                  
-                                  
-                                  
-                                  
-                                  <th width="25%">Action</th>
-                                  
-                              </tr>
-                          </thead>
-                          <tbody>
-                              @foreach ($allData as $key=> $value)
-                                <tr>
-                                    <td>{{ $key+1 }}</td>
-                                    
-                                    <td>{{ $value['student']['id_no'] }}</td>
-                                    <td>{{ $value['student']['name'] }}</td>
-                                    <td>{{ $value->role }}</td>
-                                    <td>{{ $value['student_year']['name'] }}</td>
-                                    <td>{{ $value['student_class']['name'] }}</td>
-                                    <td>
-                                      <img  class="rounded-circle" src="{{ (!empty($value['student']['image']))? 
-                                      url('upload/student_images/'.$value['student']['image']):url('upload/no_image.jpg') }}" style="width: 50px; height: 50px; border: 1px solid;">
-                                    </td>
-                                    <td>{{ $value['student']['code'] }}</td>
-                                    
-                                    
-                                    <td>
-                                        <a href="{{ route('student.registration.edit',$value->student_id) }}" class="btn btn-info" ><i class="fa fa-edit"></i></a>
-                                        <a href="{{ route('student.registration.promotion',$value->student_id) }}" class="btn btn-danger" ><i class="fa fa-check"></i></a>
-                                        <a target="_blank" href="{{ route('student.registration.details',$value->student_id) }}" class="btn btn-danger" ><i class="fa fa-eye"></i></a>
-                                    </td>
-                                    
-                                </tr>   
-                              @endforeach
-                              
-                              
-                          </tbody>
-                          
-                        </table>
-                    @endif
+                      
+                        
+                    
                     
                   </div>
               </div>
