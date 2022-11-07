@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Backend\Student\ExamFeeController;
-use App\Http\Controllers\Backend\Student\MonthlyFeeController;
-use App\Http\Controllers\Backend\Student\StudentRoleController;
-use App\Http\Controllers\Backend\Student\RegistrationController;
-use App\Http\Controllers\Backend\Student\RegistrationFeeController;
+use App\Http\Controllers\Backend\student\ExamFeeController;
+use App\Http\Controllers\Backend\student\MonthlyFeeController;
+use App\Http\Controllers\Backend\student\StudentRoleController;
+use App\Http\Controllers\Backend\student\RegistrationController;
+use App\Http\Controllers\Backend\student\RegistrationFeeController;
 
 Route::get('/reg/view', [RegistrationController::class, 'RegistrationView'])->name('student.registration.view');
 Route::get('/reg/add', [RegistrationController::class, 'RegistrationAdd'])->name('student.registration.add');
