@@ -185,7 +185,7 @@
                                         <div class="form-group">
                                             <h5>Narration <span class="text-danger">*</span></h5>
                                             <div class="controls">
-                                                <textarea name="textarea" id="textarea" class="form-control" required="" placeholder="Fee Payment..."></textarea>
+                                                <textarea name="narration" id="textarea" class="form-control" required="" placeholder="Fee Payment..."></textarea>
                                             <div class="help-block"></div></div>
                                         </div>
                                     </div> 
