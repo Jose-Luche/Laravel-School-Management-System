@@ -22,8 +22,8 @@ class RegistrationController extends Controller
         $data['classes'] = StudentClass::all();
 
         //search options tied to the search form
-        $data['year_id'] = StudentYear::orderBy('id', 'asc')->first()->id;
-        $data['student_class_id'] = StudentClass::orderBy('id', 'asc')->first()->id;
+        //$data['year_id'] = StudentYear::orderBy('id', 'asc')->first()->id;
+        //$data['student_class_id'] = StudentClass::orderBy('id', 'asc')->first()->id;
         $data['allData'] = AssignStudent::where('year_id', $data['year_id'])->where('student_class_id', $data['student_class_id'])->get();
 
 
