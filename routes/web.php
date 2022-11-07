@@ -12,7 +12,7 @@ use App\Http\Controllers\Backend\Account\LedgerController;
 use App\Http\Controllers\Backend\reports\ProfitController;
 use App\Http\Controllers\Backend\Setup\ExamTypeController;
 use App\Http\Controllers\Backend\Setup\FeeAmountController;
-use App\Http\Controllers\Backend\Student\ExamFeeController;
+use App\Http\Controllers\Backend\student\ExamFeeController;
 
 use App\Http\Controllers\Backend\Account\ReceiptsController;
 
@@ -28,9 +28,9 @@ use App\Http\Controllers\Backend\Account\StudentFeeController;
 use App\Http\Controllers\Backend\Setup\StudentClassController;
 use App\Http\Controllers\Backend\Setup\StudentGroupController;
 use App\Http\Controllers\Backend\Setup\StudentShiftController;
-use App\Http\Controllers\Backend\Student\MonthlyFeeController;
+use App\Http\Controllers\Backend\student\MonthlyFeeController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
-use App\Http\Controllers\Backend\Student\StudentRoleController;
+use App\Http\Controllers\Backend\student\StudentRoleController;
 use App\Http\Controllers\Backend\employee\EmployeeRegController;
 use App\Http\Controllers\Backend\reports\ResultReportController;
 
@@ -42,7 +42,7 @@ use App\Http\Controllers\Backend\Account\AccountSalaryController;
 use App\Http\Controllers\Backend\employee\EmployeeLeaveController;
 use App\Http\Controllers\Backend\employee\MonthlySalaryController;
 use App\Http\Controllers\Backend\employee\EmployeeSalaryController;
-use App\Http\Controllers\Backend\Student\RegistrationFeeController;
+use App\Http\Controllers\Backend\student\RegistrationFeeController;
 use App\Http\Controllers\Backend\reports\AttendanceReportController;
 use App\Http\Controllers\Backend\Employee\EmployeeAttendanceController;
 
