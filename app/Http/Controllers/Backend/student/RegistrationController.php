@@ -21,10 +21,21 @@ class RegistrationController extends Controller
         $data['years'] = StudentYear::all();
         $data['classes'] = StudentClass::all();
 
+        //search options tied to the search form
         $data['year_id'] = StudentYear::orderBy('id', 'asc')->first()->id;
         $data['student_class_id'] = StudentClass::orderBy('id', 'asc')->first()->id;
         $data['allData'] = AssignStudent::where('year_id', $data['year_id'])->where('student_class_id', $data['student_class_id'])->get();
+
+
         return view('backend.student.student_reg.view_student_reg', $data);
+    }
+
+    public function show($id)
+    {
+        $member = User::where('id', $id)->get();
+
+
+        return view('backend.student.student_reg.memberView', compact('member'));
     }
 
     //Search parameter code

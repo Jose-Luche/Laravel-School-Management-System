@@ -11,7 +11,7 @@
             <!-- Basic Forms -->
              <div class="box">
                <div class="box-header with-border">
-                 <h4 class="box-title">Add Student</h4>
+                 <h4 class="box-title">Add Member</h4>
                  
                </div>
                <!-- /.box-header -->
@@ -27,7 +27,7 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <h5>Student Name <span class="text-danger">*</span></h5>
+                                                <h5>Name <span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <input type="text" name="name"  class="form-control" required=""  > 
                                                     @error('name')
@@ -41,7 +41,7 @@
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <h5>Father's Name <span class="text-danger">*</span></h5>
+                                                <h5>ID No: <span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <input type="text" name="fname"  class="form-control" > 
                                                     @error('name')
@@ -53,7 +53,7 @@
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <h5>Mother's Name <span class="text-danger">*</span></h5>
+                                                <h5>KRA PIN: <span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <input type="text" name="mname"  class="form-control"   > 
                                                     @error('name')
@@ -177,7 +177,7 @@
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <h5>Class<span class="text-danger">*</span></h5>
+                                                <h5>Member Group<span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <select name="student_class_id"  required="" class="form-control">
                                                         <option value="" selected="" disabled="">Select Class</option>

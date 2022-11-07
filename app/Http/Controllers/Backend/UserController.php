@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\User;
+use App\Exports\UserExport;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
@@ -84,5 +86,15 @@ class UserController extends Controller
         );
 
         return redirect()->route('user.view')->with($notification);
+    }
+
+    public function exportInExcel()
+    {
+        return Excel::download(new UserExport, 'userslist.xlsx');
+    }
+
+    public function exportInCsv()
+    {
+        return Excel::download(new UserExport, 'userslist.csv');
     }
 }

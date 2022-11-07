@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Designation;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\DB;
 use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
@@ -63,5 +64,11 @@ class User extends Authenticatable
     public function designation()
     {
         return $this->belongsTo(Designation::class, 'designation_id', 'id');
+    }
+
+    public static function getUsers()
+    {
+        $data = DB::table('users')->select('id', 'name', 'mobile', 'address', 'gender')->get()->toArray();
+        return $data;
     }
 }
