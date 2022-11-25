@@ -75,6 +75,6 @@ class StudentYearController extends Controller
             'alert-type' => 'info'
         );
 
-        return redirect()->route('student.class.view')->with($notification);
+        return redirect()->route('student.year.view')->with($notification);
     }
 }

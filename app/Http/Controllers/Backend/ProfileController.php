@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Hash;
 class ProfileController extends Controller
 {
     public function ProfileView()
+    /*
+    Route::get('member/{id}, ')
+    public funcion member($id){
+        $member = Prospest::where('id',$id)->firts();
+        return view('member', compact('member'));
+    }*/
     {
         $id = Auth::user()->id;
         $user = User::findOrFail($id);

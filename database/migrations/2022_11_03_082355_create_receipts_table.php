@@ -18,7 +18,7 @@ class CreateReceiptsTable extends Migration
             $table->integer('memberId');
             $table->integer('ledgerId');
             $table->double('amount');
-            $table->string('narration');
+            $table->string('narration')->nullable();
             $table->string('payMode');
             $table->string('reference');
             $table->date('regDate');

@@ -81,6 +81,7 @@ Route::prefix('employees')->middleware('auth')->name('')->group(base_path('route
 Route::prefix('marks')->middleware('auth')->name('')->group(base_path('routes/web/marks.php'));
 Route::prefix('accounts')->middleware('auth')->name('')->group(base_path('routes/web/accounts.php'));
 Route::prefix('reports')->middleware('auth')->name('')->group(base_path('routes/web/reports.php'));
+Route::prefix('prospect')->middleware('auth')->name('')->group(base_path('routes/web/prospects.php'));
 
 Route::group(['middleware' => 'auth'], function () {
 

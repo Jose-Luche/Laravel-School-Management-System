@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Backend\Reports\ProfitController;
-use App\Http\Controllers\Backend\Reports\MarksheetController;
+use App\Http\Controllers\Backend\reports\ProfitController;
+use App\Http\Controllers\Backend\reports\MarksheetController;
 use App\Http\Controllers\backend\reports\StudentIDController;
 use App\Http\Controllers\backend\reports\ResultReportController;
-use App\Http\Controllers\Backend\Reports\AttendanceReportController;
+use App\Http\Controllers\Backend\reports\AttendanceReportController;
 
 Route::get('monthly/profit/view', [ProfitController::class, 'MonthlyProfitView'])->name('monthly.profit.view');
 Route::get('monthly/profit/datewise', [ProfitController::class, 'MonthlyProfitDateWise'])->name('reports.profit.datewise.get');

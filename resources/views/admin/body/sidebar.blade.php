@@ -69,6 +69,7 @@
           </span>
         </a>
         <ul class="treeview-menu">
+          <li><a href="{{ route('details.view') }}"><i class="ti-more"></i>Company Info</a></li>
           <li><a href="{{ route('student.class.view') }}"><i class="ti-more"></i>Member Group</a></li>
           <li><a href="{{ route('student.year.view') }}"><i class="ti-more"></i>Member Year</a></li>
           <li><a href="{{ route('student.group.view') }}"><i class="ti-more"></i>Student Group</a></li>
@@ -94,11 +95,27 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="{{ route('student.registration.view') }}"><i class="ti-more"></i>Member Registration</a></li>
+          <!--<li><a href="{{ route('student.registration.view') }}"><i class="ti-more"></i>Member Registration</a></li>-->
+          <li><a href="{{ route('std.view') }}"><i class="ti-more"></i>Students</a></li>
           <!--<li><a href="{{ route('role.generate.view') }}"><i class="ti-more"></i>Role Generate</a></li>-->
           <li><a href="{{ route('reg.fee.view') }}"><i class="ti-more"></i>Registration Fee</a></li>
           <li><a href="{{ route('monthly.fee.view') }}"><i class="ti-more"></i>Weekly Fee</a></li>
           <li><a href="{{ route('exam.fee.view') }}"><i class="ti-more"></i>Admin Fee</a></li>
+          
+          
+        </ul>
+      </li>
+
+      <li class="treeview {{ ($prefix == '/prospect')?'active':'' }} ">
+        <a href="#">
+          <i data-feather="users"></i> <span>Prospects</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="{{ route('prospect.view') }}"><i class="ti-more"></i>Prospects Reg</a></li>
+          
           
           
         </ul>

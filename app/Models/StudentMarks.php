@@ -7,9 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class StudentMarks extends Model
 {
-    public function student()
+    /*public function student()
     {
         return $this->belongsTo(User::class, 'student_id', 'id');
+    }*/
+
+    public function student()
+    {
+        return $this->belongsTo(Student::class, 'student_id', 'id');
     }
 
     public function assign_subject()

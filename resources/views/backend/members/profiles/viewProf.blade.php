@@ -5,11 +5,7 @@
 
     
 
-@php
-    $students = App\Models\User::where('usertype','student')->count();
-    $employees = App\Models\User::where('usertype','employee')->count();
-    
-@endphp
+
     
 
 <div class="content-wrapper">
@@ -23,12 +19,12 @@
                   <div class="box overflow-hidden pull-up">
                       <div class="box-body">
                         <h3 class="text-center"><b>Member Details</b></h3>							
-                          <h5><b>Name: {{$member->name}} </b></h5>
-                          <h5><b>ID: {{$member->id_no}}</b></h5>
-                          <h5><b>Mobile: {{$member->mobile}}</b></h5>
-                          <h5><b>Address: {{$member->address}}</b></h5>
+                          <h5><b>Name: {{$student->name}} </b></h5>
+                          <h5><b>ID: {{$student->id_no}}</b></h5>
+                          <h5><b>Mobile: {{$student->mobile}}</b></h5>
+                          <h5><b>Address: {{$student->address}}</b></h5>
                           <div>
-                            <a href="{{route('student.registration.edit', $member->id)}}" class="btn btn-info" ><i class="fa fa-edit"></i></a>
+                            <a href="{{route('std.edit', $student->id)}}" class="btn btn-info" ><i class="fa fa-edit"></i></a>
                           </div>
                       </div>
                   </div>
@@ -67,32 +63,61 @@
                         <a href="{{ route('prospect.add')}}" style="float: right; margin-right:4px;" class="btn btn-rounded btn-success mb-5">Add Prospect</a> 
                       </div>
                       <div class="box-body">
-                        
+
                         <table id="example1" class="table table-bordered table-striped">
+                            <h5>Bills</h5>
                             <thead>
                                 <tr>
                                     <th width="5%">SL</th>
+                                    <th>Date</th>
+                                    <th>Fee Type</th>
+                                    <th>Amount</th> 
+                                      
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if ($student->bills != null)
+                                    @foreach ($student->bills as $key => $value)
+
+                                    <tr>
+                                        <td><a href="{{url('accounts/make_payment/'.$value->id)}}">{{ $key+1 }}</a></td>
+                                        <td>{{ date('M Y', strtotime($value->date)) }}</td> 
+                                        <td>{{ $value['fee_category']['name'] }}</td>
+                                        <td>{{ $value->amount }}</td>
+                                        
+                                        
+                                    </tr> 
+                                        
+                                    @endforeach
+                                
                                     
+                                @endif
+
+                                    
+                                
+                                
+                                
+                            </tbody>
+                            
+                          </table>
+                        
+                        <table id="example1" class="table table-bordered table-striped">
+                            <h5>Receipts</h5>
+                            <thead>
+                                <tr>
                                     <th>Payment Mode</th>
                                     <th>Reference</th>
                                     <th>Date</th>
-                                    <th>Amount</th>
-                                     
-                                   
-                                    
-                                    
-                                    
-                                    
-                                    
+                                    <th>Amount</th>  
                                     
                                 </tr>
                             </thead>
                             <tbody>
-                                @if ($member->receipts != null)
-                                    @foreach($member->receipts as $value)
+                                @if ($student->receipts != null)
+                                    @foreach($student->receipts as $value)
                                         <!-- Add Receipt table -->
                                         <tr>
-                                            <td>{{ $key+1 }}</td>
+                                            
                                             <td>{{ $value->payMode }}</td>
                                             <td>{{ $value->reference }}</td>
                                             <td>{{ $value->regDate }}</td>

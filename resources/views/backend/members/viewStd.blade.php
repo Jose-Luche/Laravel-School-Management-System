@@ -27,7 +27,7 @@
                                       <option value="" selected="" disabled="">Select Year</option>
                                       
                                       @foreach ($years as $year)
-                                          <option value="{{ $year->id }}" {{ (@$year_id == $year->id)? "selected":"" }}>{{ $year->name }}</option> 
+                                          <option value="{{ $year->id }}">{{ $year->name }}</option> 
                                       @endforeach
                                       
                                       
@@ -47,7 +47,7 @@
                                     <select name="student_class_id"  required="" class="form-control">
                                         <option value="" selected="" disabled="">Select Class</option>
                                         @foreach ($classes as $class) <!-- Displaying search parameters on screen -->
-                                            <option value="{{ $class->id }}" {{ (@$student_class_id == $class->id)? "selected":"" }}>{{ $class->name }}</option>  
+                                            <option value="{{ $class->id }}">{{ $class->name }}</option>  
                                         @endforeach
                                     </select>
                                 </div>
@@ -72,7 +72,7 @@
            <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title">Student List</h3>
-                <a href="{{ route('student.registration.add')}}" style="float: right;" class="btn btn-rounded btn-success mb-5">Add Student</a>
+                <a href="{{ route('std.add')}}" style="float: right;" class="btn btn-rounded btn-success mb-5">Add Student</a>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -98,18 +98,18 @@
                             @foreach ($allData as $key=> $value)
                               <tr>
                                   <td>{{ $key+1 }}</td>
-                                  
-                                  <td>{{ $value->id_no}}</td>
-                                  <td>{{ $value->name }}</td>
-                                  <td>{{ $value->occupation }}</td>
-                                  <td>{{ $value->kra }}</td>
-                                  <td>{{ $value->email }}</td>
-                                  <td>{{ $value->mobile }}</td>
+
+                                  <td><a href="{{url('student/std/'.$value->id)}}">{{ $value['student']['id_no']}}</a></td>
+                                  <td>{{ $value['student']['name'] }}</td>
+                                  <td>{{ $value['student']['occupation'] }}</td>
+                                  <td>{{ $value['student']['kra'] }}</td>
+                                  <td>{{ $value['student']['email'] }}</td>
+                                  <td>{{ $value['student']['mobile'] }}</td>
                                   
                                   
                                   <td>
-                                      <a href="{{ route('student.registration.edit',$value->student_id) }}" class="btn btn-info" ><i class="fa fa-edit"></i></a>
-                                      <a href="{{ route('student.registration.promotion',$value->student_id) }}" class="btn btn-danger" ><i class="fa fa-check"></i></a>
+                                      <a href="{{ route('std.edit',$value->student_id) }}" class="btn btn-info" ><i class="fa fa-edit"></i></a>
+    
                                       <a target="_blank" href="{{ route('student.registration.details',$value->student_id) }}" class="btn btn-danger" ><i class="fa fa-eye"></i></a>
                                   </td>
                                   

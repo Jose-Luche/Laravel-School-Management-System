@@ -13,6 +13,8 @@ Route::get('student/fee/add', [StudentFeeController::class, 'StudentFeeAdd'])->n
 Route::post('student/fee/store', [StudentFeeController::class, 'StudentFeeStore'])->name('student.fee.store');
 Route::get('student/fee/getstudent', [StudentFeeController::class, 'StudentFeeGetStudent'])->name('student.fee.getstudent');
 
+
+
 //Employee Salary Routes
 Route::get('account/salary/view', [AccountSalaryController::class, 'AccountSalaryView'])->name('account.salary.view');
 Route::get('account/salary/add', [AccountSalaryController::class, 'AccountSalaryAdd'])->name('account.salary.add');
@@ -41,3 +43,6 @@ Route::get('/receipt/add', [ReceiptsController::class, 'ReceiptAdd'])->name('rec
 
 Route::post('/receipt/store', [ReceiptsController::class, 'ReceiptStore'])->name('receipt.store');
 Route::get('/fee/getmember', [ReceiptsController::class, 'GetMemberFee'])->name('get.member.fee');
+
+Route::get('/make_payment/{id}', [ReceiptsController::class, 'billShow'])->name('make.payment');
+Route::post('/make_payment/store/{id}', [ReceiptsController::class, 'PaymentStore'])->name('make.payment.store');

@@ -19,6 +19,8 @@ class StudentFeeController extends Controller
         return view('backend.account.student_fee.student_fee_view', $data);
     }
 
+
+
     public function StudentFeeAdd()
     {
         $data['years'] = StudentYear::all();

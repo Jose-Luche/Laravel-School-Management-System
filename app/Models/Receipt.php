@@ -9,9 +9,14 @@ class Receipt extends Model
 {
     use HasFactory;
 
-    public function member()
+    /*public function member()
     {
         return $this->belongsTo(User::class, 'memberId', 'id');
+    }*/
+
+    public function member()
+    {
+        return $this->belongsTo(Student::class, 'memberId', 'id');
     }
 
     public function ledger()

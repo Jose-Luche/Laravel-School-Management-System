@@ -11,14 +11,14 @@
             <!-- Basic Forms -->
              <div class="box">
                <div class="box-header with-border">
-                 <h4 class="box-title">Add Member</h4>
+                 <h4 class="box-title">Add Prospect</h4>
                  
                </div>
                <!-- /.box-header -->
                <div class="box-body">
                  <div class="row">
                    <div class="col">
-                       <form method="POST" action="{{ route('student.registration.store')}}" enctype="multipart/form-data">
+                       <form method="POST" action="{{ route('prospect.store')}}" enctype="multipart/form-data">
                         @csrf
                          <div class="row">
                            <div class="col-12">	
@@ -53,9 +53,9 @@
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <h5>KRA PIN: <span class="text-danger">*</span></h5>
+                                                <h5>Next of Kin <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="text" name="kra"  class="form-control"   > 
+                                                    <input type="text" name="noKin"  class="form-control"   > 
                                                     @error('name')
                                                         <span class="text-danger">{{ $message }}</span>
                                                     @enderror
@@ -108,65 +108,18 @@
                                     </div>
 
                                     <div class="row">
+                                           
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <h5>Email <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="email" name="email"  class="form-control" required=""  > 
-                                                    @error('name')
-                                                        <span class="text-danger">{{ $message }}</span>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                        </div>    
-                                        
-
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <h5>Occupation <span class="text-danger">*</span></h5>
-                                                <div class="controls">
-                                                    <input type="text" name="occupation"  class="form-control" > 
+                                                    <input type="email" name="email"  class="form-control" required="" > 
                                                     @error('name')
                                                         <span class="text-danger">{{ $message }}</span>
                                                     @enderror
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <h5>Next of Kin <span class="text-danger">*</span></h5>
-                                                <div class="controls">
-                                                    <input type="text" name="noKin"  class="form-control"   > 
-                                                    @error('name')
-                                                        <span class="text-danger">{{ $message }}</span>
-                                                    @enderror
-                                                </div>
-                                            </div>  
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <h5>Religion <span class="text-danger">*</span></h5>
-                                                <div class="controls">
-                                                    <select name="religion" id="religion" required="" class="form-control">
-                                                        <option value="" selected="" disabled="">Select Religion</option>
-                                                        <option value="Christian">Christian</option>
-                                                        <option value="Muslim">Muslim</option>
-                                                        <option value="Hindu">Hindu</option>
-                                                        <option value="Budhist">Budhist</option>
-                                                        <option value="TAS">TAS</option>
-                                                        
-                                                        
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                        </div>    
-                                        
 
                                         <div class="col-md-4">
                                             <div class="form-group">
@@ -182,9 +135,9 @@
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <h5>Discount <span class="text-danger">*</span></h5>
+                                                <h5>Occupation <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="text" name="discount"  class="form-control" required="" > 
+                                                    <input type="text" name="occupation"  class="form-control" required="" > 
                                                     @error('name')
                                                         <span class="text-danger">{{ $message }}</span>
                                                     @enderror
@@ -193,85 +146,10 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <h5>Year<span class="text-danger">*</span></h5>
-                                                <div class="controls">
-                                                    <select name="year_id"  required="" class="form-control">
-                                                        <option value="" selected="" disabled="">Select Year</option>
-                                                        
-                                                        @foreach ($years as $year)
-                                                            <option value="{{ $year->id }}">{{ $year->name }}</option> 
-                                                        @endforeach
-                                                        
-                                                        
-                                                        
-                                                        
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                        </div>    
-                                        
-
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <h5>Member Group<span class="text-danger">*</span></h5>
-                                                <div class="controls">
-                                                    <select name="student_class_id"  required="" class="form-control">
-                                                        <option value="" selected="" disabled="">Select Class</option>
-                                                        @foreach ($classes as $class)
-                                                            <option value="{{ $class->id }}">{{ $class->name }}</option>  
-                                                        @endforeach
-                                                        
-                                                        
-                                                        
-                                                        
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <h5>Group<span class="text-danger">*</span></h5>
-                                                <div class="controls">
-                                                    <select name="group_id" required="" class="form-control">
-                                                        <option value="" selected="" disabled="">Select Group</option>
-                                                        @foreach ($groups as $group)
-                                                            <option value="{{ $group->id }}">{{ $group->name }}</option>   
-                                                        @endforeach
-                                                        
-                                                        
-                                                        
-                                                        
-                                                    </select>
-                                                </div>
-                                            </div>  
-                                        </div>
-                                    </div>
+                                    
 
                                     <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <h5>Shift<span class="text-danger">*</span></h5>
-                                                <div class="controls">
-                                                    <select name="shift_id"  required="" class="form-control">
-                                                        <option value="" selected="" disabled="">Select Shift</option>
-                                                        
-                                                        @foreach ($shifts as $shift)
-                                                            <option value="{{ $shift->id }}">{{ $shift->name }}</option> 
-                                                        @endforeach
-                                                        
-                                                        
-                                                        
-                                                        
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                        </div>    
+                                           
                                         
 
                                         <div class="col-md-4">

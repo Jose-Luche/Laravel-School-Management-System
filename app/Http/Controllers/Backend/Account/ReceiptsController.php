@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\Account;
 
 use App\Models\Ledger;
 use App\Models\Receipt;
+use App\Models\Student;
 use App\Models\FeeAmount;
 use App\Models\FeeCategory;
 use App\Models\StudentYear;
@@ -22,6 +23,7 @@ class ReceiptsController extends Controller
         return view('backend.account.receipts.viewReceipt', $data);
     }
 
+
     public function ReceiptAdd()
     {
         $data['years'] = StudentYear::all();
@@ -31,6 +33,89 @@ class ReceiptsController extends Controller
 
         return view('backend.account.receipts.addReceipt', $data);
     }
+
+    public function billShow($id)
+    {
+        //$payment = AccountStudentFee::where('id', $id)->first();
+        $student = Student::where('id', $id)->first();
+        $accounts = Ledger::all();
+
+        $bills = [];
+        if ($student->bills != null) {
+            $bills = $student->bills;
+        }
+
+        return view('backend.account.receipts.makePayment', compact('student', 'bills', 'accounts', 'id'));
+    }
+
+    public function PaymentStore(Request  $request, $id)
+    {
+        //Declare the variables
+
+        $student = Student::where('id', $id)->first()->id;
+        $totals = $request->totals;
+        $regDate = $request->regDate;
+        $payMode = $request->payMode;
+        $ledgerId = $request->ledgerId;
+        $reference = $request->reference;
+        $narration = $request->narration;
+
+        //create an instance to help with data storage
+        $data = new Receipt();
+        $data->amount = $totals;
+        $data->regDate = $regDate;
+        $data->payMode = $payMode;
+        $data->ledgerId = $ledgerId;
+        $data->reference = $reference;
+        $data->narration = $narration;
+        $data->memberId = $student;
+
+        $data->save();
+
+        $recId = $data->id;
+
+
+        if (!empty(@$data)) {
+            //prepare for receipt allocations
+            foreach ($request->contId as $key => $value) {
+                $amountPaid = $request->paid[$key];
+                $projId = $request->contId[$key];
+
+                //create instance of the allocaion model
+                $alloc = new allocReceipt;
+                if ($amountPaid > 0) {
+                    $alloc->recId = $recId;
+                    $alloc->acst_id = $projId;
+                    $alloc->amount = $amountPaid;
+                    $alloc->allocDate = $regDate;
+
+                    $alloc->save();
+                }
+            }
+
+            $notification = array(
+                'message' => 'Done! Data Inserted successfully',
+                'alert-type' => 'success'
+            );
+
+            return redirect()->route('receipt.view')->with($notification);
+        } else {
+            $notification = array(
+                'message' => 'Sorry! Data not saved',
+                'alert-type' => 'error'
+            );
+
+            return redirect()->back()->with($notification);
+        }
+    }
+
+
+
+
+
+
+
+
 
     public function GetMemberFee(Request $request)
     {
@@ -111,6 +196,14 @@ class ReceiptsController extends Controller
                 $data->amount = $request->amount[$checkdata[$i]];
 
                 $data->save();
+
+                $allocReceipt = new allocReceipt();
+                $allocReceipt->recId = $request->recId;
+                $allocReceipt->acst_id = $request->acst_id;
+                $allocReceipt->allocDate = $request->allocDate;
+                $allocReceipt->amount = $request->amount;
+
+                $allocReceipt->save();
             }
         }
 

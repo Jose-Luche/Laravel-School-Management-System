@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class AssignStudent extends Model
 {
+
+
     public function student()
     {
-        return $this->belongsTo(User::class, 'student_id', 'id');
+        return $this->belongsTo(Student::class, 'student_id', 'id');
     }
 
     public function discount()
@@ -35,5 +37,11 @@ class AssignStudent extends Model
     public function shift()
     {
         return $this->belongsTo(StudentShift::class, 'shift_id', 'id');
+    }
+
+    /** A PROSPECT HAS MANY RECEIPTS **/
+    public function receipts()
+    {
+        return $this->hasMany(Receipt::class, 'memberId', 'id');
     }
 }

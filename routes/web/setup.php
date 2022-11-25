@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\Setup\SubjectController;
 use App\Http\Controllers\Backend\Setup\ExamTypeController;
+use App\Http\Controllers\Backend\Setup\CpDetailsController;
 use App\Http\Controllers\Backend\Setup\FeeAmountController;
 use App\Http\Controllers\Backend\Setup\DesignationController;
 use App\Http\Controllers\Backend\Setup\FeeCategoryController;
@@ -114,3 +115,11 @@ Route::get('/designation/edit/{id}', [DesignationController::class, 'Designation
 
 Route::post('/designation/update/{id}', [DesignationController::class, 'DesignationUpdate'])->name('designation.update');
 Route::get('/designation/delete/{id}', [DesignationController::class, 'DesignationDelete'])->name('designation.delete');
+
+//Company Details
+Route::get('/details/view', [CpDetailsController::class, 'viewDetails'])->name('details.view');
+Route::get('/details/add', [CpDetailsController::class, 'addDetails'])->name('details.add');
+Route::post('/details/store', [CpDetailsController::class, 'storeDetails'])->name('details.store');
+
+Route::get('/details/edit/{id}', [CpDetailsController::class, 'editDetails'])->name('details.edit');
+Route::post('/details/update/{id}', [CpDetailsController::class, 'upDetails'])->name('details.update');

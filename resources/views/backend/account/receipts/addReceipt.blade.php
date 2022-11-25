@@ -185,10 +185,14 @@
                                         <div class="form-group">
                                             <h5>Narration <span class="text-danger">*</span></h5>
                                             <div class="controls">
-                                                <textarea name="textarea" id="textarea" class="form-control" required="" placeholder="Fee Payment..."></textarea>
+                                                <textarea name="narration" id="textarea" class="form-control" required="" placeholder="Fee Payment..."></textarea>
                                             <div class="help-block"></div></div>
                                         </div>
-                                    </div> 
+                                    </div>
+                                    <input type="hidden" name="recId" value="">
+                                    <input type="hidden" name="acst_id" value="">
+                                    <input type="hidden" name="allocDate" value="">
+                                    <input type="hidden" name="amount" value="">
                                 </div>
                                 <button type="submit" class="btn btn-primary" style="margin-top: 10px">Submit</button>
                                 </form>

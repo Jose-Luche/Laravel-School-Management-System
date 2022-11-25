@@ -1,11 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Backend\Student\ExamFeeController;
-use App\Http\Controllers\Backend\Student\MonthlyFeeController;
-use App\Http\Controllers\Backend\Student\StudentRoleController;
-use App\Http\Controllers\Backend\Student\RegistrationController;
-use App\Http\Controllers\Backend\Student\RegistrationFeeController;
+use App\Http\Controllers\Backend\student\ExamFeeController;
+use App\Http\Controllers\Backend\student\StudentController;
+use App\Http\Controllers\Backend\student\StProfileController;
+use App\Http\Controllers\Backend\student\MonthlyFeeController;
+use App\Http\Controllers\Backend\student\StudentRoleController;
+use App\Http\Controllers\Backend\student\RegistrationController;
+use App\Http\Controllers\Backend\student\RegistrationFeeController;
 
 Route::get('/reg/view', [RegistrationController::class, 'RegistrationView'])->name('student.registration.view');
 Route::get('/reg/add', [RegistrationController::class, 'RegistrationAdd'])->name('student.registration.add');
@@ -46,3 +48,15 @@ Route::get('/exam/fee/view', [ExamFeeController::class, 'ExamFeeView'])->name('e
 Route::get('/exam/fee/classwisedata', [ExamFeeController::class, 'ExamFeeClassWise'])->name('student.exam.fee.classwise.get');
 
 Route::get('/exam/fee/payslip', [ExamFeeController::class, 'ExamFeePayslip'])->name('student.exam.fee.payslip');
+
+//Student Routes
+Route::get('/std/view', [StudentController::class, 'stdView'])->name('std.view');
+Route::get('/std/add', [StudentController::class, 'stdAdd'])->name('std.add');
+
+Route::post('/std/store', [StudentController::class, 'stdStore'])->name('std.store');
+Route::get('/std/edit/{student_id}', [StudentController::class, 'stdEdit'])->name('std.edit');
+
+Route::post('/std/update/{student_id}', [StudentController::class, 'stdUpdate'])->name('std.update');
+
+//Student Profile Routes
+Route::get('/std/{student_id}', [StProfileController::class, 'stPrView'])->name('std.profile');
