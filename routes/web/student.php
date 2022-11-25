@@ -2,8 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\student\ExamFeeController;
+<<<<<<< HEAD
 use App\Http\Controllers\Backend\student\StudentController;
 use App\Http\Controllers\Backend\student\StProfileController;
+=======
+>>>>>>> 87b194cbf6f4312cfc45fa872a2845a469e6592d
 use App\Http\Controllers\Backend\student\MonthlyFeeController;
 use App\Http\Controllers\Backend\student\StudentRoleController;
 use App\Http\Controllers\Backend\student\RegistrationController;
